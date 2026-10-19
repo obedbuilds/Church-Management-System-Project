@@ -1,0 +1,163 @@
+1. Project purpose
+
+Working name: Church Records and Ministry Management System
+Initial market: Ghanaian churches
+Primary users: Church secretaries, treasurers, pastors, ministry leaders, and designated administrative officers.
+
+Objective: Provide a coordinated system for recording church activities, managing membership and resources, and compiling accurate reports with less administrative effort.
+
+Begin with one church in the pilot. Serving multiple independent churches will require a separate design for church registration, subscriptions, and strict separation of each church’s records.
+
+2. System structure
+
+The completed application will contain these sections, introduced according to our phases:
+Section	Purpose
+Dashboard	Summarise activities, results, and outstanding work
+Calendar and Programmes	Schedule activities and connect them to service records
+Attendance	Record service attendance and trends
+Membership	Maintain member profiles, roles, groups, and status history
+Visitors and Follow-up	Track visits, assigned officers, and follow-up progress
+Evangelism and Discipleship	Record souls won and subsequent discipleship
+Finance	Maintain income, expenditure, funds, and reconciliation
+Inventory	Track church assets and their condition
+Reports and Documents	Compile, review, approve, and retrieve reports and files
+Settings and Users	Manage church details, categories, and permissions
+
+
+3. Calendar and daily activity records
+
+The calendar will offer daily, weekly, and monthly views, with recurring programmes and special events.
+
+Each programme will have:
+- Programme title and unique reference.
+- Date, start/end time, and venue.
+- Programme type and responsible ministry.
+- Assigned officer.
+- Status: scheduled, completed, postponed, or cancelled.
+- Linked attendance, offerings, visitors, souls won, and activity notes.
+A programme can be completed while its report remains awaiting submission or review. These are separate statuses.
+
+4. Attendance rules
+
+Preserve this entry order:
+Category	Entry fields
+Pastor	Number present
+Elders	Number present
+Deacons	Number present
+Deaconesses	Number present
+Members	Male and female
+Children	Male and female
+Total	Automatically calculated
+
+
+For the pilot:
+- Count each person once per service.
+- Officers must not also appear under ordinary members.
+- Use zero for a completed category with nobody present; a blank means the count is incomplete.
+- Record visitors as a separate breakdown within total attendance, not an additional amount added to it.
+- The adult member columns will initially mean adult congregants excluding officers, including adult visitors. Display this explanation beside the form; we can adjust the labels to match the pilot church’s reporting convention.
+- Aggregate attendance measures visits. Unique attendees require individual check-in records.
+5. Membership, visitors, and souls won
+Record	Minimum information
+Member	Unique ID, name, sex, contact details where available, church role, ministry/group, membership date, and status
+Visitor	Name where provided, visit date, linked programme, first-time/returning status, optional contact details, and assigned follow-up officer
+Evangelistic response	Person or contact reference, response date, programme/source, assigned officer, and follow-up status
+Follow-up	Responsible officer, next action, due date, outcome, and restricted notes where necessary
+
+
+Use “Souls won” as the church-facing label, defined for reporting as a newly recorded profession of faith. Keep baptism, discipleship, and membership admission as separate milestones.
+
+Link repeat visits and follow-ups to an existing person where identifiable. Do not count the same person repeatedly as newly won.
+
+For the pilot, membership statuses will be Active, Inactive, Transferred Out, and Deceased, with effective dates and retained history. Final definitions should match the church’s practice.
+
+6. Financial records
+
+Currency: GHS
+Payment methods: Cash, bank, and mobile money.
+Income categories	Expenditure categories
+Free will	Utilities
+Offering	Support
+Special offering	Welfare
+Other income	Purchases
+	Repairs and maintenance
+	Transport and travel
+	Programmes and events
+	Administration
+	Other expenditure
+
+
+Every transaction should have a date, unique reference, amount, category, account, fund, description, recorder, and supporting evidence reference.
+
+Financial controls will include:
+- Separate transaction entry and review.
+- No self-approval where approval is required.
+- Account and fund opening balances.
+- Transfers recorded separately from income and expenditure.
+- Reconciliation against actual cash, bank, and MoMo balances.
+- Corrections to approved entries through traceable reversals or adjustments.
+- Special offerings linked to their designated purposes.
+This starts as a cash receipts, payments, and fund-tracking system. Full accrual accounting is outside the initial scope.
+
+7. Dashboard and reporting
+
+The dashboard will offer daily, weekly, monthly, quarterly, half-year, annual, and custom-date summaries, subject to each user’s permissions.
+Measure	Reporting treatment
+Programmes	Count by scheduled date and status
+Attendance visits	Sum completed attendance records
+Average attendance	Total attendance divided by services with completed counts
+First-time visitors	Count identifiable first-time visitors once
+Souls won	Count newly recorded professions of faith without duplicates
+Income and expenditure	Sum posted transactions within the period
+Membership	Show status as at the reporting end date
+Inventory	Show asset position as at a stated date once history is supported
+
+
+Default reporting conventions:
+- Week: Monday–Sunday.
+- Quarters: January–March, April–June, July–September, October–December.
+- Half-years: January–June and July–December.
+- Year: January–December.
+- Date display: DD/MM/YYYY.
+- Time zone: Africa/Accra.
+Keep these configurable if the church uses a different reporting year.
+
+Reports will show the church, period, preparation date, preparer, reviewer, approval status, and explanatory notes. Approved reports will retain dated versions.
+
+8. User access
+Role	Default access
+Administrator	Manage users, settings, and access; sensitive record access granted explicitly
+Secretary	Programmes, attendance, membership, and administrative reports
+Treasurer	Financial entry, reconciliation, and financial reports
+Ministry leader	Records for assigned ministries
+Follow-up officer	Assigned visitor and discipleship records
+Leadership reviewer	Authorised reports and designated approvals
+Inventory custodian	Asset records and verification
+
+
+Every user receives an individual account. Access must protect underlying records and exports, as well as visible pages. Role changes and important record changes must be logged.
+
+9. First Base44 build
+
+Our first build will implement:
+1. Sign-in and the initial user permissions.
+2. Church settings.
+3. Calendar and programme management.
+4. Aggregate attendance entry.
+5. Basic visitor and souls-won counts linked to programmes.
+6. A daily, weekly, and monthly activity dashboard.
+7. Fictional demonstration records.
+Detailed person-based follow-up follows in Phase 3. Finance, inventory, and advanced reports will appear as later-phase features until implemented.
+
+10. Acceptance criteria
+
+The first build is ready for review when:
+- An authorised officer can create and edit a programme.
+- Recurring activities appear correctly in the calendar.
+- A complete attendance record calculates correctly.
+- Blank counts are flagged rather than treated as zero.
+- Visitor figures do not inflate total attendance.
+- Date filters produce correct activity summaries.
+- Records remain saved after signing out and returning.
+- Users cannot view or change records outside their permissions.
+- Duplicate programme attendance submissions are prevented or clearly flagged.
